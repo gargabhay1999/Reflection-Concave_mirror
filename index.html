@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Reflaction Through Concave Mirror</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, , initial-scale=1">
+	<link rel="icon" href="favicon.png" type="image/gif">
+    <link rel="stylesheet" href="range-slider.css">
+	<link rel="stylesheet" href="bootstrap-3.3.7/css/bootstrap.min.css">
+	<script src="jquery-3.1.1.min.js"></script>
+	<script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="experiment.js"></script>
+	<script type="text/javascript" src="range-slider.js"></script>
+</head>
+
+<body id="concave" onload="loadExperiment()">
+
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+		<div class="navbar-header">
+		  <a class="navbar-brand"> Refelction Through Concave Mirror</a>
+		</div>
+		<ul class="nav navbar-nav" style="float:right">
+			<li> <a href="https://www.linkedin.com/in/gargabhay1999" target="_blank"><u>Created By: Abhay Garg</u></a></li>
+		</ul>
+	  </div>
+	</nav>
+
+
+	<div id="rangeSlide" class="well well-sm" style="margin:20px 10px 10px 10px; padding:20px auto;">
+		<form oninput="roc.value=parseInt(Range.value/6)">	<!--/6.16-->
+			<b>Radius of curvature of concave mirror:
+				<div class="range-slider">
+					<!--<input type="range" min="0" max="600" name="Range" value="300" class="data" onchange="loadExperiment()">-->
+					<input type="range"  min="150" max="360" step="6" name="Range" value="240" class="range-slider__range" onchange="loadExperiment()">
+				</div>
+			<br>
+		</form>
+		<input type="hidden" id="line_space" min="1" value="40" class="data" onchange="loadExperiment()">
+		<table>
+			<tr>
+				<td>Radius of Curvature (R) = CP= &nbsp; </td>
+				<td>
+					<input type="text" id="roc" name="roc" value="40" class="form-control" onchange="loadExperiment()">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Focal Length (f) = FP = 
+				</td>
+				<td>
+					<input type="text" id="focal_len" class="form-control">
+				</td>
+			</tr>
+		</table>
+			</b>
+		</form>
+		<!--Help button-->
+		<Button class="btn btn-info" data-toggle="modal" data-target="#myModal_Help" onclick="initialiseHelp()"><span class="glyphicon glyphicon-question-sign"> </span> Help</button>
+		&nbsp;&nbsp;
+		<!-- Modal -->
+		<div class="modal fade" id="myModal_Help" name="Help" role="dialog">
+			<div class="modal-dialog">
+			
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Help</h4>
+					</div>
+					<div class="modal-body">
+						<span id ="Help"> </span>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			  
+			</div>
+		</div>
+		
+		<Button class="btn btn-info" data-toggle="modal" data-target="#myModal_Info" onclick="initialiseInfo()"><span class="glyphicon glyphicon-info-sign"> </span> Info</button>
+		<!-- Modal -->
+		<div class="modal fade" id="myModal_Info" name="Info" role="dialog">
+			<div class="modal-dialog">
+			
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Info</h4>
+					</div>
+					<div class="modal-body">
+						<span id ="Info"> </span>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			  
+			</div>
+		</div>
+	</div>
+	<div id="canvas" class="well well-sm" style="margin:0px 10px; padding:20px auto;">
+			<canvas id="myCanvas" style="background-color:#274a4e" width="1310" height="425">
+	</div>
+		<!--<div id ="Info" > </div>
+		<div id ="Help" > </div>-->
+
+		
+		
+</body>
+</html>
